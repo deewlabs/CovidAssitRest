@@ -1,39 +1,31 @@
-package com.mphasis.covidassistapi.dao;
+package com.mphasis.covidassistapi.modal;
 
-import javax.annotation.Generated;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import org.hibernate.annotations.GeneratorType;
-import org.hibernate.id.IdentityGenerator;
-
-@Entity
-@Table(name="PatientInfo")
-public class Patient {
+public class PatientInfo {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonProperty("patientId")
 	private Integer patientId ;
+	@JsonProperty("firstName")
 	private String  firstName;
+	@JsonProperty("lastName")
 	private String  lastName ;
+	@JsonProperty("age")
 	private Integer age;
+	@JsonProperty("sex")
 	private String  sex;
+	@JsonProperty("addresslin1")
 	private String  addressLine1 ;
+	@JsonProperty("addresslin2")
 	private String  addressLine2 ;
+	@JsonProperty("lattitude")
 	private Double  lattitude;
+	@JsonProperty("longitude")
 	private Double longitude;
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="pastMedConId")
-	private PastMedicalCondition medicalCondtion;
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="symptonId")
-	private CovidSympton  covidSympton;
+	@JsonProperty("symptonId")
+	private Integer symptonId;
+	@JsonProperty("medicalCondId")
+	private Integer medicalCondId;
 	public Integer getPatientId() {
 		return patientId;
 	}
@@ -88,18 +80,19 @@ public class Patient {
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
-	public PastMedicalCondition getMedicalCondtion() {
-		return medicalCondtion;
+	public Integer getSymptonId() {
+		return symptonId;
 	}
-	public void setMedicalCondtion(PastMedicalCondition medicalCondtion) {
-		this.medicalCondtion = medicalCondtion;
+	public void setSymptonId(Integer symptonId) {
+		this.symptonId = symptonId;
 	}
-	public CovidSympton getCovidSympton() {
-		return covidSympton;
+	public Integer getMedicalCondId() {
+		return medicalCondId;
 	}
-	public void setCovidSympton(CovidSympton covidSympton) {
-		this.covidSympton = covidSympton;
+	public void setMedicalCondId(Integer medicalCondId) {
+		this.medicalCondId = medicalCondId;
 	}
+	
 	
 
 }

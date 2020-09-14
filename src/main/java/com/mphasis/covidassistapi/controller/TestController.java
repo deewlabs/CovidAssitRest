@@ -4,12 +4,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/ca")
 public class TestController {
 	
 	@RequestMapping("/ping")
 	public String ping() {
-		return "pong";
+		return "amit";
 	}
 
 }
