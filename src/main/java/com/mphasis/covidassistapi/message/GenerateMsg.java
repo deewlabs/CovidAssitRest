@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface GenerateMsg {
 
-    void generateMsgsUsingHospialsList(List<Hospital> hospitalList,String number);
+    void generateMsgsUsingHospialsList(List<Hospital> hospitalList,String number,boolean flag);
 }

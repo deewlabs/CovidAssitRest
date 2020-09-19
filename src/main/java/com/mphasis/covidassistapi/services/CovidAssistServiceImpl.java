@@ -96,8 +96,10 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 		newPatient.setEmergencyContactNo(patient.getEmergencyContactNo());
 		Patient savedEntity=patientRepo.save(newPatient);
 		logger.info(newPatient.toString());
+		boolean flag = false;
 		if("Yes".equalsIgnoreCase(patient.getAmbulanceRequired()) && "High".equalsIgnoreCase(severity)) {
 			suggestedHospital=hospitalRepo.findHospitalWithHighSeverityAndAmbulance(patient.getLattitude(),patient.getLongitude());
+			flag = true;
 			if(!ObjectUtils.isEmpty(suggestedHospital)) {
 				logger.info("Requirement met");
 				caServiceMetric.setAmbulanceServiced(caServiceMetric.getAmbulanceServiced()+1);
@@ -129,6 +131,7 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 			
 		}
 		else if("Yes".equalsIgnoreCase(patient.getAmbulanceRequired()) && "Low".equalsIgnoreCase(severity)) {
+			flag = true;
 			suggestedHospital=hospitalRepo.findHospitalWithLowSeverityAndAmbulance(patient.getLattitude(),patient.getLongitude());
 			if(!ObjectUtils.isEmpty(suggestedHospital)) {
 				logger.info("Requirement met");
@@ -156,7 +159,7 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 		caMetricRepo.save(caServiceMetric);
 			//send whatsapp messages with hospital info 
 		suggestedHospital.forEach(t -> logger.info(t.getHospitalName()));
-		generateMsg.generateMsgsUsingHospialsList(suggestedHospital,newPatient.getEmergencyContactNo());
+		generateMsg.generateMsgsUsingHospialsList(suggestedHospital,newPatient.getEmergencyContactNo(),flag);
 		return savedEntity;
 		
 	}
