@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.mphasis.covidassistapi.message.GenerateMsg;
+import com.mphasis.covidassistapi.message.GenerateWhatsappMsg;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,6 +73,7 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 
 	@Override
 	public Patient savePatientInfo(PatientInfo patient) {
+		GenerateMsg generateMsg = new GenerateWhatsappMsg();
 		String severity =findSeverity(patient.getMedicalCondition(),patient.getCovidSympton(),patient.getAge());
 		List<Hospital> suggestedHospital=null;
 		Optional<CAServiceMetric> caMetric=caMetricRepo.findById(1);
@@ -92,7 +95,7 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 		newPatient.setSeverity(severity);
 		newPatient.setEmergencyContactNo(patient.getEmergencyContactNo());
 		Patient savedEntity=patientRepo.save(newPatient);
-		logger.info("Patient info saved now finding hospitals, severity={},lattitude={},longtiude={}",severity,patient.getLattitude(),patient.getLongitude());
+		logger.info(newPatient.toString());
 		if("Yes".equalsIgnoreCase(patient.getAmbulanceRequired()) && "High".equalsIgnoreCase(severity)) {
 			suggestedHospital=hospitalRepo.findHospitalWithHighSeverityAndAmbulance(patient.getLattitude(),patient.getLongitude());
 			if(!ObjectUtils.isEmpty(suggestedHospital)) {
@@ -152,13 +155,8 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 		
 		caMetricRepo.save(caServiceMetric);
 			//send whatsapp messages with hospital info 
-			
-		
-		
-			
-			
-		
-		
+		suggestedHospital.forEach(t -> logger.info(t.getHospitalName()));
+		generateMsg.generateMsgsUsingHospialsList(suggestedHospital,newPatient.getEmergencyContactNo());
 		return savedEntity;
 		
 	}

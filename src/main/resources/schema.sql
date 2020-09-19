@@ -17,7 +17,8 @@ create table Hospitals
   TotalOxygenUnit integer,
   AvailableOxygenUnit integer,
   TotalVentilator integer,
-  AvailableVentilator integer
+  AvailableVentilator integer,
+  Url varchar(180)
 );
 
 

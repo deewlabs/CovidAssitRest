@@ -131,9 +131,26 @@ public class Patient {
 	public void setInternationalTravel(String internationalTravel) {
 		this.internationalTravel = internationalTravel;
 	}
-	
-	
-	
-	
 
+	@Override
+	public String toString() {
+		return "Patient{" +
+				"patientId=" + patientId +
+				", name='" + name + '\'' +
+				", age=" + age +
+				", sex='" + sex + '\'' +
+				", address='" + address + '\'' +
+				", lattitude=" + lattitude +
+				", longitude=" + longitude +
+				", contactNo='" + contactNo + '\'' +
+				", emergencyContactNo='" + emergencyContactNo + '\'' +
+				", emailId='" + emailId + '\'' +
+				", medicalCondition='" + medicalCondition + '\'' +
+				", covidSympton='" + covidSympton + '\'' +
+				", severity='" + severity + '\'' +
+				", ambulanceRequired='" + ambulanceRequired + '\'' +
+				", hospitalRequired='" + hospitalRequired + '\'' +
+				", internationalTravel='" + internationalTravel + '\'' +
+				'}';
+	}
 }

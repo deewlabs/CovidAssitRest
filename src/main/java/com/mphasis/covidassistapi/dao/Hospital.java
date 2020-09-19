@@ -29,6 +29,16 @@ public class Hospital {
 	private Integer totalOxygenUnit;
 	private Integer totalVentilator;
 	private Integer availableVentilator;
+	private String url;
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public Integer getHospitalId() {
 		return hospitalId;
 	}
@@ -131,8 +141,14 @@ public class Hospital {
 	public void setAvailableVentilator(Integer availableVentilator) {
 		this.availableVentilator = availableVentilator;
 	}
-	
-	
-	
+
+
+	@Override
+	public String toString() {
+		return hospitalName +
+				", Address : " + hospitalAddress +
+				", Contact Number : "+ contactNo +
+				", Url : "+url ;
+	}
 	
 }
