@@ -20,37 +20,32 @@ public class Patient {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer patientId ;
-	private String  firstName;
-	private String  lastName ;
+	private String  name;
 	private Integer age;
 	private String  sex;
-	private String  addressLine1 ;
-	private String  addressLine2 ;
+	private String  address ;
 	private Double  lattitude;
 	private Double longitude;
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="pastMedConId")
-	private PastMedicalCondition medicalCondtion;
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="symptonId")
-	private CovidSympton  covidSympton;
+	private String contactNo;
+	private String emergencyContactNo;
+	private String emailId;
+	private String medicalCondition;
+	private String covidSympton;
+	private String severity;
+	private String ambulanceRequired;
+	private String  hospitalRequired;
+	private String  internationalTravel;
 	public Integer getPatientId() {
 		return patientId;
 	}
 	public void setPatientId(Integer patientId) {
 		this.patientId = patientId;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Integer getAge() {
 		return age;
@@ -64,17 +59,11 @@ public class Patient {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public String getAddressLine1() {
-		return addressLine1;
+	public String getAddress() {
+		return address;
 	}
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
-	}
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public Double getLattitude() {
 		return lattitude;
@@ -88,18 +77,63 @@ public class Patient {
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
-	public PastMedicalCondition getMedicalCondtion() {
-		return medicalCondtion;
+	public String getContactNo() {
+		return contactNo;
 	}
-	public void setMedicalCondtion(PastMedicalCondition medicalCondtion) {
-		this.medicalCondtion = medicalCondtion;
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
 	}
-	public CovidSympton getCovidSympton() {
+	public String getEmergencyContactNo() {
+		return emergencyContactNo;
+	}
+	public void setEmergencyContactNo(String emergencyContactNo) {
+		this.emergencyContactNo = emergencyContactNo;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	public String getMedicalCondition() {
+		return medicalCondition;
+	}
+	public void setMedicalCondition(String medicalCondition) {
+		this.medicalCondition = medicalCondition;
+	}
+	public String getCovidSympton() {
 		return covidSympton;
 	}
-	public void setCovidSympton(CovidSympton covidSympton) {
+	public void setCovidSympton(String covidSympton) {
 		this.covidSympton = covidSympton;
 	}
+	public String getSeverity() {
+		return severity;
+	}
+	public void setSeverity(String severity) {
+		this.severity = severity;
+	}
+	public String getAmbulanceRequired() {
+		return ambulanceRequired;
+	}
+	public void setAmbulanceRequired(String ambulanceRequired) {
+		this.ambulanceRequired = ambulanceRequired;
+	}
+	public String getHospitalRequired() {
+		return hospitalRequired;
+	}
+	public void setHospitalRequired(String hospitalRequired) {
+		this.hospitalRequired = hospitalRequired;
+	}
+	public String getInternationalTravel() {
+		return internationalTravel;
+	}
+	public void setInternationalTravel(String internationalTravel) {
+		this.internationalTravel = internationalTravel;
+	}
+	
+	
+	
 	
 
 }

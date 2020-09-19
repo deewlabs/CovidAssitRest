@@ -1,26 +1,44 @@
-INSERT INTO Hospitals 
-(HospitalName,HospitalAddress,Lattitude,Longitude,Locality,
-TotalICU,TotalVentilator,TotalAmbulance,
-AvailableICU,AvailableVentilator,AvailableAmbulance)
- VALUES ('ManipalHospital', 'BTM Layout', 123.5678,123.5678,'BTM Layout',100,100,100,20,20,20); 
- 
- INSERT INTO Hospitals 
-(HospitalName,HospitalAddress,Lattitude,Longitude,Locality,
-TotalICU,TotalVentilator,TotalAmbulance,
-AvailableICU,AvailableVentilator,AvailableAmbulance)
- VALUES ('SathyaSaiHospital', 'BTM Layout', 123.5678,123.5678,'BTM Layout',100,100,100,20,20,20);
- 
- INSERT INTO Hospitals 
-(HospitalName,HospitalAddress,Lattitude,Longitude,Locality,
-TotalICU,TotalVentilator,TotalAmbulance,
-AvailableICU,AvailableVentilator,AvailableAmbulance)
- VALUES ('BrookfieldHospital', 'BTM Layout', 123.5678,123.5678,'BTM Layout',100,100,100,20,20,20);
- 
- INSERT INTO Hospitals 
-(HospitalName,HospitalAddress,Lattitude,Longitude,Locality,
-TotalICU,TotalVentilator,TotalAmbulance,
-AvailableICU,AvailableVentilator,AvailableAmbulance)
- VALUES ('AmitHospital', 'BTM Layout', 123.5678,123.5678,'BTM Layout',100,100,100,20,20,20);
+INSERT INTO Hospitals (HospitalName,HospitalAddress,Lattitude,Longitude,ContactNo,EmailId,AmbulanceServiceAvailable,TotalAmbulance,AvailableAmbulance,TotalIsolationBed,AvailableIsolationBed,TotalICU,AvailableICU,TotalOxygenUnit,AvailableOxygenUnit,TotalVentilator,AvailableVentilator)
+
+values
+('ManipalHospital',
+'BTM Layout',
+'123.5678',
+'123.5678',
+'9964811222',
+'abc@gmail.com',
+'yes',
+20,
+10,
+100,
+100,
+50,
+50,
+200,
+200,
+150,
+134); 
+
+INSERT INTO Hospitals (HospitalName,HospitalAddress,Lattitude,Longitude,ContactNo,EmailId,AmbulanceServiceAvailable,TotalAmbulance,AvailableAmbulance,TotalIsolationBed,AvailableIsolationBed,TotalICU,AvailableICU,TotalOxygenUnit,AvailableOxygenUnit,TotalVentilator,AvailableVentilator)
+
+values
+('ManipalHospital1',
+'BTM Layout',
+'326.5678',
+'456.5678',
+'9964811222',
+'abc@gmail.com',
+'yes',
+20,
+20,
+100,
+100,
+50,
+50,
+200,
+200,
+150,
+134); 
  
  insert into CovidSymptons (Symptons,severity) values ('Runny nose','Low');
  insert into CovidSymptons (Symptons,severity) values ('High Fever','Low');
@@ -35,13 +53,7 @@ AvailableICU,AvailableVentilator,AvailableAmbulance)
         ('Tuberclosis','Medium','Yes','No'),
         ('LungDiseases','High','Yes','Yes');
         
-  insert into PatientInfo (FirstName,LastName,Age,Sex,AddressLine1,AddressLine2,Lattitude,Longitude,pastmedconid)
-  values 
-  ('Test1','Test1','23','M','test','test','123.23','14.5236',1),
-   ('Test1','Test1','23','M','test','test','123.23','14.5236',2),
-    ('Test1','Test1','23','M','test','test','123.23','14.5236',2),
-     ('Test1','Test1','23','M','test','test','123.23','14.5236',3),
-      ('Test1','Test1','23','M','test','test','123.23','14.5236',4),
-       ('Test1','Test1','23','M','test','test','123.23','14.5236',2),
-        ('Test1','Test1','23','M','test','test','123.23','14.5236',3);
-          
+ 
+insert into CAServiceMetric (AmbulanceServiced,AmbulanceNotServiced ,ICUServiced ,ICUNotServiced ,VentilatorServiced ,VentilatorNotServiced,IsolationBedServiced,IsolationBedNotServiced,OxygenCylinderServiced,OxygenCylinderNotServiced )
+values(0,0,0,0,0,0,0,0,0,0);       
+

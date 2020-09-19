@@ -2,10 +2,12 @@ package com.mphasis.covidassistapi.services;
 
 import java.util.List;
 
+import com.mphasis.covidassistapi.dao.CAServiceMetric;
 import com.mphasis.covidassistapi.dao.CovidSympton;
 import com.mphasis.covidassistapi.dao.Hospital;
 import com.mphasis.covidassistapi.dao.PastMedicalCondition;
 import com.mphasis.covidassistapi.dao.Patient;
+import com.mphasis.covidassistapi.modal.HospitalInfo;
 import com.mphasis.covidassistapi.modal.PatientInfo;
 
 public interface CovidAssitService {
@@ -16,5 +18,7 @@ public interface CovidAssitService {
   public List<PastMedicalCondition> getAllMedicalConditon();
   public List<CovidSympton> getAllCovidSymptons();
   Patient savePatientInfo(PatientInfo patient);
+  Hospital saveHospitalInfo(HospitalInfo hospitalInfo);
+  public List<CAServiceMetric> dashboard();
 
 }

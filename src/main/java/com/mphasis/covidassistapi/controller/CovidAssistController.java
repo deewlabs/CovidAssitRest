@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mphasis.covidassistapi.dao.CAServiceMetric;
 import com.mphasis.covidassistapi.dao.CovidSympton;
 import com.mphasis.covidassistapi.dao.Hospital;
 import com.mphasis.covidassistapi.dao.PastMedicalCondition;
 import com.mphasis.covidassistapi.dao.Patient;
+import com.mphasis.covidassistapi.modal.HospitalInfo;
 import com.mphasis.covidassistapi.modal.PatientInfo;
 import com.mphasis.covidassistapi.services.CovidAssitService;
 
@@ -40,6 +42,12 @@ public class CovidAssistController {
 		return service.savePatientInfo(patient);
 	}
 	
+	
+	@RequestMapping(value="/saveHospital",method=RequestMethod.POST)
+	public  Hospital saveHospitalInfo(@RequestBody HospitalInfo hinfo) {
+		return service.saveHospitalInfo(hinfo);
+	}
+	
 	@RequestMapping(value="/allMedicalCondition",method=RequestMethod.GET)
 	public List<PastMedicalCondition> getAllMedicalConditon(){
 		return service.getAllMedicalConditon();
@@ -50,4 +58,8 @@ public class CovidAssistController {
 		return service.getAllCovidSymptons();
 	}
 
+	@RequestMapping(value="/dashboard",method=RequestMethod.GET)
+	public List<CAServiceMetric> dashboard(){
+		return service.dashboard();
+	}
 }

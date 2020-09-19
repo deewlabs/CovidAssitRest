@@ -5,13 +5,19 @@ create table Hospitals
   HospitalAddress varchar(300) not null,
   Lattitude double,
   Longitude double,
-  Locality varchar(100),
-  TotalICU integer,
-  TotalVentilator integer,
+  ContactNo varchar(20),
+  EmailId varchar(100),
+  AmbulanceServiceAvailable varchar(10),
   TotalAmbulance integer,
+  AvailableAmbulance integer,
+  TotalIsolationBed integer,
+  AvailableIsolationBed integer,
+  TotalICU integer,
   AvailableICU integer,
-  AvailableVentilator integer,
-  AvailableAmbulance integer
+  TotalOxygenUnit integer,
+  AvailableOxygenUnit integer,
+  TotalVentilator integer,
+  AvailableVentilator integer
 );
 
 
@@ -32,17 +38,35 @@ create table CovidSymptons
 
 create table PatientInfo(
   PatientId INTEGER PRIMARY KEY AUTO_INCREMENT,
-  FirstName varchar(100),
-  LastName varchar(100),
+  Name varchar(100),
   Age integer,
   Sex char(1),
-  AddressLine1 varchar(200),
-  AddressLine2 varchar(200),
+  Address varchar(500),
   Lattitude double,
   Longitude double,
-  PastMedConId INTEGER,
-  SymptonId INTEGER,
-  foreign key (PastMedConId)  references  PastMedicalCondition(PastMedConId),
-  foreign key (SymptonId)  references  CovidSymptons(SymptonId)
+  ContactNo varchar(20),
+  EmergencyContactNo varchar(20),
+  EmailId varchar(100),
+  MedicalCondition varchar(40),
+  CovidSympton varchar(40),
+  Severity varchar(10),
+  AmbulanceRequired varchar(5),
+  HospitalRequired varchar(5),
+  InternationalTravel varchar(5)
   
 );
+
+create table CAServiceMetric
+(
+MetricId INTEGER PRIMARY KEY AUTO_INCREMENT,
+AmbulanceServiced Integer,
+AmbulanceNotServiced Integer,
+ICUServiced Integer,
+ICUNotServiced Integer,
+VentilatorServiced Integer,
+VentilatorNotServiced Integer,
+IsolationBedServiced Integer,
+IsolationBedNotServiced Integer,
+OxygenCylinderServiced Integer,
+OxygenCylinderNotServiced Integer
+)
