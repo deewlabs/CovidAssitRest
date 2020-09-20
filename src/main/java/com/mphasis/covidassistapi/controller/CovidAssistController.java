@@ -2,6 +2,7 @@ package com.mphasis.covidassistapi.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import com.mphasis.covidassistapi.services.CovidAssitService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value="/api/ca")
 public class CovidAssistController {
@@ -26,7 +28,7 @@ public class CovidAssistController {
 	public CovidAssistController(CovidAssitService service) {
 		this.service=service;
 	}
-	
+
 	@RequestMapping(value="/allpatient",method=RequestMethod.GET)
 	public List<Patient> getAllPatient() {
 		return service.getAllPatientList1();
