@@ -159,7 +159,12 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 		caMetricRepo.save(caServiceMetric);
 			//send whatsapp messages with hospital info 
 		suggestedHospital.forEach(t -> logger.info(t.getHospitalName()));
-		generateMsg.generateMsgsUsingHospialsList(suggestedHospital,newPatient.getEmergencyContactNo(),flag);
+		if(flag){
+			generateMsg.generateMsgsUsingHospialsList(hospitalRepo.findHospitalWithLowSeverityAndAmbulance(patient.getLattitude(),patient.getLongitude()),newPatient.getEmergencyContactNo(),flag);
+		}
+		if("Yes".equalsIgnoreCase(patient.getHospitalRequired())){
+			generateMsg.generateMsgsUsingHospialsList(suggestedHospital,newPatient.getEmergencyContactNo(),false);
+		}
 		return savedEntity;
 		
 	}
