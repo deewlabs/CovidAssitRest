@@ -27,6 +27,7 @@ public class Hospital {
 	private Integer totalIcu;
 	private Integer availableIcu;
 	private Integer totalOxygenUnit;
+	private Integer availableOxygenUnit;
 	private Integer totalVentilator;
 	private Integer availableVentilator;
 	private String url;
@@ -142,6 +143,14 @@ public class Hospital {
 		this.availableVentilator = availableVentilator;
 	}
 
+
+	public Integer getAvailableOxygenUnit() {
+		return availableOxygenUnit;
+	}
+
+	public void setAvailableOxygenUnit(Integer availableOxygenUnit) {
+		this.availableOxygenUnit = availableOxygenUnit;
+	}
 
 	@Override
 	public String toString() {

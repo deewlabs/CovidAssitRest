@@ -69,5 +69,7 @@ VentilatorNotServiced Integer,
 IsolationBedServiced Integer,
 IsolationBedNotServiced Integer,
 OxygenCylinderServiced Integer,
-OxygenCylinderNotServiced Integer
+OxygenCylinderNotServiced Integer,
+TotalCovidTests Integer,
+TotalPositiveTests Integer
 )

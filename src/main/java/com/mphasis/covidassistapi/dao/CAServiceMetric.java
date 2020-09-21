@@ -23,6 +23,8 @@ public class CAServiceMetric {
 	private Integer isolationBedNotServiced ;
 	private Integer oxygenCylinderServiced ;
 	private Integer oxygenCylinderNotServiced ;
+	private Integer totalCovidTests;
+	private Integer totalPositiveTests;
 	public Integer getMetricId() {
 		return metricId;
 	}
@@ -88,6 +90,18 @@ public class CAServiceMetric {
 	}
 	public void setOxygenCylinderNotServiced(Integer oxygenCylinderNotServiced) {
 		this.oxygenCylinderNotServiced = oxygenCylinderNotServiced;
+	}
+	public Integer getTotalCovidTests() {
+		return totalCovidTests;
+	}
+	public void setTotalCovidTests(Integer totalCovidTests) {
+		this.totalCovidTests = totalCovidTests;
+	}
+	public Integer getTotalPositiveTests() {
+		return totalPositiveTests;
+	}
+	public void setTotalPositiveTests(Integer totalPositiveTests) {
+		this.totalPositiveTests = totalPositiveTests;
 	}
 	
 

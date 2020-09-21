@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import com.mphasis.covidassistapi.dao.CAServiceMetric;
 import com.mphasis.covidassistapi.dao.CovidSympton;
@@ -86,6 +87,7 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 		newPatient.setLattitude(patient.getLattitude());
 		newPatient.setLongitude(patient.getLongitude());
 		newPatient.setEmailId(patient.getEmailId());
+		newPatient.setContactNo(patient.getContactNo());
 		newPatient.setEmergencyContactNo(patient.getEmergencyContactNo());
 		newPatient.setInternationalTravel(patient.getInternationalTravel());
 		newPatient.setCovidSympton(patient.getCovidSympton());
@@ -184,7 +186,8 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 	
 	private String findSeverity(String medicalCondition,String symptons,Integer age) {
 
-		if(medicalCondition==null && symptons==null) return "Low";
+		if(StringUtils.isEmpty(medicalCondition) || StringUtils.isEmpty(symptons)) return "Low";
+		
 		if(age==null) return "NA";
 		
 		if(age <= 16 ||age >= 65) return "High";
@@ -215,6 +218,10 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 		hospitalEntity.setAvailableIcu(hospitalInfo.getTotalIcu());
 		hospitalEntity.setAvailableIsolationBed(hospitalInfo.getTotalIsolationBed());
 		hospitalEntity.setAvailableVentilator(hospitalInfo.getTotalVentilator());
+		hospitalEntity.setAvailableOxygenUnit(hospitalInfo.getTotalOxygenUnit());
+		hospitalEntity.setTotalAmbulance(hospitalInfo.getTotalAmbulance());
+		hospitalEntity.setAvailableAmbulance(hospitalInfo.getTotalAmbulance());
+		hospitalEntity.setAmbulanceServiceAvailable(hospitalInfo.getAmbulanceServiceAvailable());
 		return	hospitalRepo.save(hospitalEntity);
 		
 	}

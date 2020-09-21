@@ -33,7 +33,7 @@ public class HospitalInfo {
 	@JsonProperty("emailId")
 	private String emailId;
 	
-	@JsonProperty("totalAmbulance")
+	@JsonProperty("numberOfAmbulance")
 	private Integer totalAmbulance;
 	
 	
@@ -50,7 +50,10 @@ public class HospitalInfo {
 	
 	@JsonProperty("totalVentilator")
 	private Integer totalVentilator;
-
+	
+	@JsonProperty("ambulanceServiceAvailable")
+	private String ambulanceServiceAvailable;
+	
 	public String getHospitalName() {
 		return hospitalName;
 	}
@@ -137,6 +140,14 @@ public class HospitalInfo {
 
 	public void setTotalVentilator(Integer totalVentilator) {
 		this.totalVentilator = totalVentilator;
+	}
+
+	public String getAmbulanceServiceAvailable() {
+		return ambulanceServiceAvailable;
+	}
+
+	public void setAmbulanceServiceAvailable(String ambulanceServiceAvailable) {
+		this.ambulanceServiceAvailable = ambulanceServiceAvailable;
 	}
 	
 	

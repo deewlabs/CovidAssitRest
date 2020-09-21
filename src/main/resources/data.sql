@@ -84,6 +84,6 @@ values
         ('LungDiseases','High','Yes','Yes');
         
  
-insert into CAServiceMetric (AmbulanceServiced,AmbulanceNotServiced ,ICUServiced ,ICUNotServiced ,VentilatorServiced ,VentilatorNotServiced,IsolationBedServiced,IsolationBedNotServiced,OxygenCylinderServiced,OxygenCylinderNotServiced )
-values(0,0,0,0,0,0,0,0,0,0);       
+insert into CAServiceMetric (AmbulanceServiced,AmbulanceNotServiced ,ICUServiced ,ICUNotServiced ,VentilatorServiced ,VentilatorNotServiced,IsolationBedServiced,IsolationBedNotServiced,OxygenCylinderServiced,OxygenCylinderNotServiced,TotalCovidTests,TotalPositiveTests)
+values(20,4,23,9,19,4,15,2,12,1,25,20);       
 
