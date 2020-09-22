@@ -165,7 +165,7 @@ public class CovidAssistServiceImpl implements CovidAssitService {
 			generateMsg.generateMsgsUsingHospialsList(hospitalRepo.findHospitalWithLowSeverityAndAmbulance(patient.getLattitude(),patient.getLongitude()),newPatient.getEmergencyContactNo(),flag);
 		}
 		if("Yes".equalsIgnoreCase(patient.getHospitalRequired())){
-			generateMsg.generateMsgsUsingHospialsList(suggestedHospital,newPatient.getEmergencyContactNo(),false);
+			generateMsg.generateMsgsUsingHospialsList(suggestedHospital,newPatient.getContactNo(),false);
 		}
 		return savedEntity;
 		
